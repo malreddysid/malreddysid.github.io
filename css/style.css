@@ -276,6 +276,8 @@ p.small {
 	font-size: 14px;
 	line-height: 1.5;
 	display: block;
+	text-align: center;
+	margin-top: 20px;
 }
 
 blockquote {
@@ -353,7 +355,6 @@ thead th,th {
 }
 
 img {
-	width: 100%;
 	max-width: 100%;
 	border-radius: 3px;
 }
@@ -641,4 +642,31 @@ h2.month {
 	.post h2.headline { font-size: 13px; }
 	.post h1 { font-size:24px; }
 	.post h2 { font-size:20px; }
+}
+
+
+/* CUSTOM ADDITIONS */
+
+#social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+a.symbol {
+    color: #cdd4da;
+    font-size: 2rem;
+    text-decoration: none;
+    margin-right: 0.3rem;
+}
+
+a.symbol:hover {
+    color: #BCD4DA;
+}
+
+code { 
+	font-family:Menlo, Monaco, Courier; 
+	background-color:#EEE; font-size:14px; 
+	padding: 4px; 
+	font-weight: 600;
 }

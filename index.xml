@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Siddarth Malreddy</title>
-    <link>http://malreddysid.github.io/index.xml</link>
+    <link>https://malreddysid.guthub.io/index.xml</link>
     <description>Recent content on Siddarth Malreddy</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
+    <language>en-us</language>
     <lastBuildDate>Sun, 19 Feb 2017 22:40:00 -0500</lastBuildDate>
-    <atom:link href="http://malreddysid.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://malreddysid.guthub.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mobile Friendly Deep Learning</title>
-      <link>http://malreddysid.github.io/blog/mobile-deep-learning/</link>
+      <link>https://malreddysid.guthub.io/blog/mobile-deep-learning/</link>
       <pubDate>Sun, 19 Feb 2017 22:40:00 -0500</pubDate>
       
-      <guid>http://malreddysid.github.io/blog/mobile-deep-learning/</guid>
+      <guid>https://malreddysid.guthub.io/blog/mobile-deep-learning/</guid>
       <description>
 
 &lt;p&gt;In the past few years, convolutional neural networks have risen to popularity due to their effectiveness in various computer vision tasks. Networks like AlexNet, VGGNet, and GoogleNet have been proved to be very effective for image classification. Using a similar approach, networks like FCN, and SegNet have been shown to be effective in semantic segmentation whereas networks like FlowNet have been used to generate optical flow. Many experiments are also being done using CNNs for problems such as color correction, super resolution, and illuminant estimation.&lt;/p&gt;
@@ -76,10 +76,10 @@ The answer is that any network needs to learn a complex function which maps the 
     
     <item>
       <title>About</title>
-      <link>http://malreddysid.github.io/about/</link>
-      <pubDate>Sun, 19 Feb 2017 22:37:16 -0500</pubDate>
+      <link>https://malreddysid.guthub.io/about/</link>
+      <pubDate>Sat, 20 Jun 2015 14:02:37 +0200</pubDate>
       
-      <guid>http://malreddysid.github.io/about/</guid>
+      <guid>https://malreddysid.guthub.io/about/</guid>
       <description>&lt;p&gt;I am a graduate student at &lt;strong&gt;Carnegie Mellon University&lt;/strong&gt; pursuing a Masters degree in Computer Vision.&lt;/p&gt;
 
 &lt;p&gt;My areas of interest are:&lt;/p&gt;
@@ -88,10 +88,6 @@ The answer is that any network needs to learn a complex function which maps the 
 &lt;li&gt;Computer Vision&lt;/li&gt;
 &lt;li&gt;Deep Learning&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;You can contact me at &lt;a href=&#34;mailto:smalredd@andrew.cmu.edu&#34;&gt;smalredd@andrew.cmu.edu&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Last updated 12&lt;sup&gt;nd&lt;/sup&gt; September 2016.&lt;/p&gt;
 </description>
     </item>
     

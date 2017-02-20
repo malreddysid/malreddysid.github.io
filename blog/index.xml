@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on Siddarth Malreddy</title>
-    <link>http://malreddysid.github.io/blog/index.xml</link>
+    <link>https://malreddysid.guthub.io/blog/index.xml</link>
     <description>Recent content in Blogs on Siddarth Malreddy</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
+    <language>en-us</language>
     <lastBuildDate>Sun, 19 Feb 2017 22:40:00 -0500</lastBuildDate>
-    <atom:link href="http://malreddysid.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://malreddysid.guthub.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mobile Friendly Deep Learning</title>
-      <link>http://malreddysid.github.io/blog/mobile-deep-learning/</link>
+      <link>https://malreddysid.guthub.io/blog/mobile-deep-learning/</link>
       <pubDate>Sun, 19 Feb 2017 22:40:00 -0500</pubDate>
       
-      <guid>http://malreddysid.github.io/blog/mobile-deep-learning/</guid>
+      <guid>https://malreddysid.guthub.io/blog/mobile-deep-learning/</guid>
       <description>
 
 &lt;p&gt;In the past few years, convolutional neural networks have risen to popularity due to their effectiveness in various computer vision tasks. Networks like AlexNet, VGGNet, and GoogleNet have been proved to be very effective for image classification. Using a similar approach, networks like FCN, and SegNet have been shown to be effective in semantic segmentation whereas networks like FlowNet have been used to generate optical flow. Many experiments are also being done using CNNs for problems such as color correction, super resolution, and illuminant estimation.&lt;/p&gt;

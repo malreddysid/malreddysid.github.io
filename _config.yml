@@ -16,9 +16,9 @@ disqus: true
 disqus_shortname: 'malreddysidgithubio'
 
 # Details for the RSS feed generator
-url:            'http://malreddysid.github.com'
-author:         'Siddarth Malreddy'
-authorTwitter:  'YourTwitterUsername'
+#url:            'http://malreddysid.github.com'
+#author:         'Siddarth Malreddy'
+#authorTwitter:  'YourTwitterUsername'
 
 permalink:       /:year/:title/
 

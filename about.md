@@ -4,6 +4,9 @@ permalink: about/
 profile: true
 ---
 
-This is a static page. It could be an 'about page' if you'd like.
+I am a graduate student at **Carnegie Mellon University** pursuing a Masters degree in Computer Vision.
 
-{% include footer.html %}
+My areas of interest are:
+
+* Computer Vision
+* Deep Learning

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://malreddysid.guthub.io/blog/mobile-deep-learning/</loc>
+    <loc>https://malreddysid.guthub.io/post/mobile-deep-learning/</loc>
     <lastmod>2017-02-19T22:40:00-05:00</lastmod>
   </url>
   
@@ -18,7 +18,7 @@
   </url>
   
   <url>
-    <loc>https://malreddysid.guthub.io/blog/</loc>
+    <loc>https://malreddysid.guthub.io/post/</loc>
     <lastmod>2017-02-19T22:40:00-05:00</lastmod>
     <priority>0</priority>
   </url>

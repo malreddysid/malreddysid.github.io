@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="description" content="Personal blog">
+<meta name="keywords" content="deeplearning,machine learning,computer vision,blog">
+
+<base href="http://malreddysid.github.io">
+
+<title>Siddarth Malreddy</title>
+
+<meta name="generator" content="Hugo 0.18.1" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://malreddysid.github.io/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en-US">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Mobile Friendly Deep Learning</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON FEB 19, 2017 
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    
+
+<p>In the past few years, convolutional neural networks have risen to popularity due to their effectiveness in various computer vision tasks. Networks like AlexNet, VGGNet, and GoogleNet have been proved to be very effective for image classification. Using a similar approach, networks like FCN, and SegNet have been shown to be effective in semantic segmentation whereas networks like FlowNet have been used to generate optical flow. Many experiments are also being done using CNNs for problems such as color correction, super resolution, and illuminant estimation.</p>
+
+<p>Because of the huge accuracy boost when using CNNs, companies like Google and Facebook have already included them in their services. They do this by uploading our data to their servers, running the neural networks and then transferring the outputs. Even though this works for now, we still need to maintain an internet connection which may not always be available.
+Then why not just run the networks on our devices? Because deep networks are very computationally intensive. They require multiple high-end GPUs in order to function in a real world scenario. Running them on a CPU takes multiple seconds, even longer on a mobile phone. Also, their models are huge in size. Loading a large model causes delay and consumes high amount of power as it would have to be stored in the DRAM. Herein lies the Achilles’ heel of CNNs.</p>
+
+<p>But all hope is not lost. Many researchers are focusing on this very problem.</p>
+
+<p>There are two ways to make deep CNNs faster.</p>
+
+<ol>
+<li>Make them shallow.</li>
+<li>Improve the underlying implementation of the convolutional layers.</li>
+</ol>
+
+<h2 id="shallow-networks">Shallow Networks</h2>
+
+<p>The first question that comes to mind when thinking about making deep nets shallow is why do we need to make them deep in the first place?
+The answer is that any network needs to learn a complex function which maps the inputs to the output labels, and the present learning methodologies are not capable of teaching a shallow network the complex function directly. Prof. Rich Caruana discusses this in his paper <a href="http://arxiv.org/abs/1312.6184">“Do Deep Nets really need to be Deep?”</a>. He proves that by training a given dataset using an ensemble of deep nets and then transferring the function learned on these deep nets into a shallow net, it is possible to match the accuracy of the shallow net to that of the ensemble. However, simply training the shallow net using the original data gives an accuracy which is significantly lower. Thus, by transferring the function we can make the shallow network learn a much more complex function which otherwise would not have been possible by training directly on the dataset.</p>
+
+<p>But how do we transfer the learned function? We run the dataset through the ensemble and store the logits (the values that are input to the SoftMax layer). Then we train the shallow network using the logits instead of the original labels. This can be intuitively understood because by training on the logits, we are not only training the model on the right answer but also on the “almost right” answers as well as “not at all right” answer.</p>
+
+<p><em>For example given an image of a car to the ensemble, the logit value of it being a truck would much higher than it being a flower. Lets assume that the logits are car — 3, truck — 0.1, flower — 0.00001. If we train the shallow network using these probabilities, we are telling it that this image has a signifiant probability of being a car or a truck but it is definitely not a flower. So while training we are presenting the model with much more information than we would have if we had used labels.</em></p>
+
+<p>Dr. Geoffrey Hilton took it a step further and proposed that we should use the soft targets (weighted SoftMax function outputs) instead of logits. In his paper <a href="https://arxiv.org/abs/1503.02531">“Distilling the Knowledge in a Neural Network”</a> he proposes that this provides more information to be learned by the shallow model.</p>
+
+<h2 id="faster-networks-and-smaller-models">Faster Networks and Smaller Models</h2>
+
+<p>The amount of research being done on improving the run time of CNNs and compressing their models is staggering. I’m going to cover two major techniques being used for the same in this article.</p>
+
+<ul>
+<li><strong>Hardware Accelerators:</strong></li>
+</ul>
+
+<p>Because CNNs run on images and each kernel in a layer is independent of the others, they are parallelizable and are the perfect candidates for hardware acceleration. Since each kernel in a layer is independent of the other kernels, they can be run on different cores or even different machines. Having dedicated hardware means power and speed improvement at the cost of area and price. But the effectiveness of deep learning is motivating hardware manufacturers to invest in developing such hardware. <a href="https://www.qualcomm.com/invention/cognitive-technologies/zeroth">Qualcomm zeroth</a> and <a href="https://developer.nvidia.com/digits">Nvidia Digits</a> are examples of such accelerators.</p>
+
+<ul>
+<li><strong>Mathematical Techniques:</strong></li>
+</ul>
+
+<p>Since a convolutional neural network is basically a series of tensor operations, we can use tensor rank decomposition techniques to decrease the number of operations that need to be done for each layer. The paper <a href="http://arxiv.org/abs/1511.06530">“Compression of Deep Convolutional Neural Networks for Fast and Low Power Mobile Applications”</a> uses Variational Bayesian Matrix Factorization for rank selection and tucker-2-decomposition to split each layer into three layers.</p>
+
+<p><em>For a convolutional layer of size T x S x K x K, rank selection is done for the 3rd and 4th axis (P and Q). Then this layer is decomposed into three different layers (P x S x 1 x 1, Q x P x K x K, T x Q x 1 x 1).</em></p>
+
+<p>This type of architecture is also found in ResNet, SqueezeNet and the inception layers in GoogleNet. It can be intuitively justified by considering that the input layers are correlated. So their redundancy can be removed by properly combining them with 1 x 1 layers. After the core convolution, they can be expanded for the next layer. The loss in accuracy due to this operation is compensated using fine-tuning.</p>
+
+<p>Alternatively, techniques like pruning and weight sharing are used to compress the model thereby decreasing the model size as detailed in <a href="https://arxiv.org/abs/1510.00149">Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding</a>. The author claims that the network learns redundant connections during training. So he proposes to remove such connections and keep only the most informative ones. He does this by removing connections with weights below a certain threshold and finetuning the remaining weights. Using this technique he achieves a 9x reduction in parameters for AlexNet. He also uses k-means clustering to identify weights that can be shared in a single layer.</p>
+
+<p>With this, I conclude my post on making deep learning “mobile friendly”. Please let me know if I you have any suggestions.</p>
+
+<p><strong>P.S.</strong> Check out Prof. Caruana’s talks <a href="http://research.microsoft.com/apps/video/default.aspx?id=103668">here</a> and <a href="http://research.microsoft.com/apps/video/default.aspx?id=232373&amp;r=1">here</a>.</p>
+
+<p><strong>P.P.S.</strong> Dr. Hilton also shows that the model can learn to recognise inputs that it has never seen before just by inferring its structure from the soft targets. He calls it Dark Knowledge. Check out his <a href="https://www.youtube.com/watch?v=EK61htlw8hY">talk</a> if you’re interested.</p>
+
+<p><strong>Update:</strong> Prof. Caruana’s published a new paper — <a href="https://arxiv.org/abs/1603.05691">“Do Deep Convolutional Nets Really Need to be Deep (Or Even Convolutional)?”</a> in which he concludes that shallow nets can emulate deep nets given that they have multiple convolutional layers.</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'malreddysidgithubio';
+    var disqus_identifier = 'http:\/\/malreddysid.github.io\/blog\/mobile-deep-learning\/';
+    var disqus_title = 'Mobile Friendly Deep Learning';
+    var disqus_url = 'http:\/\/malreddysid.github.io\/blog\/mobile-deep-learning\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="http://malreddysid.github.io">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">
+</div>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+

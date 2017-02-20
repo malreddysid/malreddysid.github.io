@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on Siddarth Malreddy</title>
+    <link>http://malreddysid.github.io/about/index.xml</link>
+    <description>Recent content in Abouts on Siddarth Malreddy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 19 Feb 2017 22:37:16 -0500</lastBuildDate>
+    <atom:link href="http://malreddysid.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>http://malreddysid.github.io/about/</link>
+      <pubDate>Sun, 19 Feb 2017 22:37:16 -0500</pubDate>
+      
+      <guid>http://malreddysid.github.io/about/</guid>
+      <description>&lt;p&gt;I am a graduate student at &lt;strong&gt;Carnegie Mellon University&lt;/strong&gt; pursuing a Masters degree in Computer Vision.&lt;/p&gt;
+
+&lt;p&gt;My areas of interest are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Computer Vision&lt;/li&gt;
+&lt;li&gt;Deep Learning&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can contact me at &lt;a href=&#34;mailto:smalredd@andrew.cmu.edu&#34;&gt;smalredd@andrew.cmu.edu&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Last updated 12&lt;sup&gt;nd&lt;/sup&gt; September 2016.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

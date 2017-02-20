@@ -1,6 +1,6 @@
 ---
 title:  "Mobile Friendly Deep Learning"
-date:   2017-02-19 10:18:00
+date:   2017-20-02 10:18:00
 description = "A study on techniques to improve the run time of deep networks on mobiles"
 ---
 
